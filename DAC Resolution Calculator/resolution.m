@@ -1,0 +1,9 @@
+voltage_min = -5;
+voltage_max = 5;
+DAC_bit = 12;
+resolution = (voltage_max - voltage_min) / 2^DAC_bit
+resolution_semitone = 1 / 12
+semitone = [0:88];
+semitone_voltage = resolution_semitone * semitone
+DAC_semitone = round(semitone_voltage / resolution)
+%DAC_semitone_error = (semitone_voltage - (DAC_semitone * resolution))*100./semitone_voltage
